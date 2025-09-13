@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Cadrane Interactive</title>
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background: black;
+      font-family: Arial, sans-serif;
+      color: white;
+    }
+
+    /* Bara de meniu */
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px;
+      background: linear-gradient(90deg, #000000, #660066);
+      box-shadow: 0 4px 10px rgba(191, 0, 255, 0.5);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .navbar .logo {
+      width: 60px;
+      height: 60px;
+      opacity: 0.9;
+    }
+
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar ul li {
+      cursor: pointer;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    .navbar ul li:hover {
+      color: #ff00ff;
+    }
+
+    /* Container carduri */
+    .cards-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 50px;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 50px 20px 20px 20px;
+    }
+
+    .card {
+      width: 300px;
+      border-radius: 20px;
+      overflow: hidden;
+      background: #111;
+      color: white;
+      box-shadow: 0 4px 15px rgba(191, 0, 255, 0.848);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+      transform: translateZ(0);
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 25px rgba(191, 0, 255, 0.9);
+    }
+
+    .card:active {
+      transform: scale(1.08);
+      box-shadow: 0 12px 30px rgba(191, 0, 255, 1);
+    }
+
+    .card .top {
+      height: 200px;
+      background: #222;
+    }
+
+    .card .top img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .card .bottom {
+      padding: 12px;
+      text-align: center;
+    }
+
+    .card .title {
+      font-size: 18px;
+      font-weight: bold;
+      margin: 0;
+    }
+
+    .card .subtitle {
+      font-size: 14px;
+      color: #bbb;
+      margin-top: 4px;
+    }
+
+    /* Footer */
+    footer {
+      background: #111;
+      color: #bbb;
+      text-align: center;
+      padding: 20px;
+      margin-top: auto;
+      box-shadow: 0 -4px 10px rgba(191, 0, 255, 0.3);
+    }
+
+    /* Media queries */
+    @media (max-width: 960px) {
+      .card {
+        width: 45%;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .card {
+        width: 90%;
+      }
+
+      .navbar ul {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+
+    /* Popup Contact Desktop */
+    .popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #222;
+      color: white;
+      padding: 20px 30px;
+      border: 2px solid #ff00ff;
+      border-radius: 15px;
+      box-shadow: 0 0 20px #ff00ff;
+      display: none;
+      z-index: 2000;
+      text-align: center;
+    }
+
+    .popup button {
+      margin-top: 15px;
+      padding: 8px 16px;
+      background: #ff00ff;
+      color: black;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .popup button:hover {
+      background: #ff66ff;
+    }
+
+    /* Popup Mobile */
+    .popup-mobile {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #222;
+      border: 2px solid #ff00ff;
+      border-radius: 15px;
+      box-shadow: 0 0 20px #ff00ff;
+      display: none;
+      z-index: 2000;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .popup-mobile a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin: 10px 0;
+      padding: 10px 20px;
+      background: #ff00ff;
+      color: black;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+
+    .popup-mobile a:hover {
+      background: #ff66ff;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Bara de meniu -->
+  <div class="navbar">
+    <img class="logo" src="/Applications/Comp 1_00000.png" alt="Logo">
+    <ul>
+      <li>Acasă</li>
+      <li>Servicii</li>
+      <li>Despre</li>
+      <li>Contact</li>
+    </ul>
+  </div>
+
+  <!-- Carduri -->
+  <div class="cards-container">
+    <div class="card">
+      <div class="top">
+        <img src="WhatsApp_Image_1.jpeg" alt="Imagine">
+      </div>
+      <div class="bottom">
+        <p class="title">Reparatii Device</p>
+        <p class="subtitle">Hardware</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="top">
+        <img src="WhatsApp_Image_2.jpeg" alt="Imagine">
+      </div>
+      <div class="bottom">
+        <p class="title">Upgrade Device</p>
+        <p class="subtitle">Hardware</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="top">
+        <img src="WhatsApp_Image_3.jpeg" alt="Imagine">
+      </div>
+      <div class="bottom">
+        <p class="title">Instalari Windows</p>
+        <p class="subtitle">Software</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 Reparatii Device. Toate drepturile rezervate.
+  </footer>
+
+  <!-- Popup Desktop -->
+  <div id="contact-popup" class="popup">
+    <p>Adresa de email: <strong>Albert.dumit@outlook.com</strong></p>
+    <button id="close-popup">Închide</button>
+  </div>
+
+  <!-- Popup Mobile -->
+  <div id="contact-popup-mobile" class="popup-mobile">
+    <a href="tel:0735378532">📞 Apelează</a>
+    <a href="mailto:Albert.dumit@outlook.com">✉️ Trimite Email</a>
+    <button id="close-popup-mobile">Închide</button>
+  </div>
+
+  <script>
+    const contactLi = document.querySelector('.navbar ul li:last-child');
+    const popup = document.getElementById('contact-popup');
+    const closeBtn = document.getElementById('close-popup');
+
+    const popupMobile = document.getElementById('contact-popup-mobile');
+    const closeMobileBtn = document.getElementById('close-popup-mobile');
+
+    function isMobile() {
+      return /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    }
+
+    contactLi.addEventListener('click', () => {
+      if (isMobile()) {
+        popupMobile.style.display = 'block';
+      } else {
+        popup.style.display = 'block';
+      }
+    });
+
+    // Închidere Desktop
+    closeBtn.addEventListener('click', () => {
+      popup.style.display = 'none';
+    });
+
+    window.addEventListener('click', (e) => {
+      if (e.target === popup) popup.style.display = 'none';
+    });
+
+    // Închidere Mobile
+    closeMobileBtn.addEventListener('click', () => {
+      popupMobile.style.display = 'none';
+    });
+
+    window.addEventListener('click', (e) => {
+      if (e.target === popupMobile) popupMobile.style.display = 'none';
+    });
+  </script>
+
+</body>
+</html>
+
+ 
